@@ -15,6 +15,7 @@
         pkgs.mkShell {
         # create an environment with nodejs_18, pnpm, and yarn
           packages = with pkgs; [
+            gnumake
             gnum4
             python311
             python311Packages.setuptools
