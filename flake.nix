@@ -34,7 +34,7 @@
           ];
 
           shellHook = ''
-            export THE_TEST_VAR="Lmao"
+            export TEST_VAR="Lmao"
             export CHECKPOLICY="${pkgs.checkpolicy}/bin/checkpolicy" 
             export CHECKMODULE="${pkgs.checkpolicy}/bin/checkmodule"
             export SEMODULE="${pkgs.policycoreutils}/bin/semodule"
