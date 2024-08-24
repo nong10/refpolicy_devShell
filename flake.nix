@@ -14,6 +14,8 @@
     devShells."${system}".default = 
         pkgs.mkShell {
           packages = with pkgs; [
+            git
+
             gawk	      # awk
             gnugrep	    # grep
             coreutils	  # GNU coreutils: install sort
