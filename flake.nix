@@ -37,7 +37,7 @@
           shellHook = ''
             export TEST_VAR="Lmaoooooo"
 
-            export AWK="${pkgs.awk}/bin/awk" 
+            export AWK="${pkgs.gawk}/bin/awk" 
             export GREP="${pkgs.gnugrep}/bin/grep" 
             export INSTALL="${pkgs.coreutils}/bin/install" 
             export SORT="${pkgs.coreutils}/bin/sort"
