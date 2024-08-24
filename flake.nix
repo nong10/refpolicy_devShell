@@ -40,11 +40,11 @@
             export TEST_VAR="Lmaoooooo"
 
             export AWK="${pkgs.gawk}/bin/awk" 
-            export GREP="${pkgs.gnugrep}/bin/grep" 
+            export GREP="${pkgs.gnugrep}/bin/grep -E" 
             export INSTALL="${pkgs.coreutils}/bin/install" 
-            export SORT="${pkgs.coreutils}/bin/sort"
-            export M4="${pkgs.gnum4}/bin/m4" 
+            export M4="${pkgs.gnum4}/bin/m4 -E -E" 
             export PYTHON="${pkgs.python311}/bin/python3 -bb -t -t -E -W error"
+            export SORT="LC_ALL=C ${pkgs.coreutils}/bin/sort"
             export SED="${pkgs.gnused}/bin/sed" 
 
             export CHECKPOLICY="${pkgs.checkpolicy}/bin/checkpolicy" 
