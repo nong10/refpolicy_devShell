@@ -26,14 +26,14 @@
             checkpolicy     # checkpolicy checkmodule
             semodule-utils  # semodule_link semodule_unpackage semodule_expand semodule_package
             setools         # sechecker
-            libselinux      # sefcontext_compile
+            (libselinux.override { enablePython = true; } )      # sefcontext_compile
             libxml2         # xmllint
-            (python311.withPackages ( ps: with ps; 
-              [ 
-                setuptools
-                (callPackage ./selinux_pypackage.nix {}) 
-              ]             # [policy_root]/support/selinux_binary_policy_path.py
-            ))
+            #(python311.withPackages ( ps: with ps; 
+            #  [ 
+            #    setuptools
+            #    (callPackage ./selinux_pypackage.nix {}) 
+            #  ]             # [policy_root]/support/selinux_binary_policy_path.py
+            #))
           ];
 
           shellHook = ''
