@@ -37,7 +37,7 @@
           ];
 
           shellHook = ''
-            export TEST_VAR="Lmaoooooo"
+            export VAR_TEST="Lmaoooooo"
 
             export AWK="${pkgs.gawk}/bin/awk" 
             export GREP="${pkgs.gnugrep}/bin/grep -E" 
