@@ -62,6 +62,11 @@
             export SECHECK="${pkgs.setools}/bin/sechecker"
             export XMLLINT="${pkgs.libxml2}/bin/xmllint"
             echo "hello devShell! env for refpolicy" 
+            echo -e "Suggested actions: " 
+            echo -e "\t mkdir /var/lib/selinux"
+            echo -e "\t ln -s [path to libselinux]/bin/sefcontext_compile /usr/sbin/" 
+            echo -e "\t ln -s [path to policycoreutils]/bin/setfiles /usr/sbin/" 
+            echo -e "\t ln -s [path to policycoreutils]/libexec/selinux /usr/libexec/" 
           '';
         };
   };
