@@ -13,9 +13,7 @@
       overlays = [
         (final: prev: {
           libsemanage = prev.libsemanage.overrideAttrs {
-            patchPhase = ''
-              patch -p1 "${./conf-parse.y.patch}"
-            '';
+            patches = [ "${./conf-parse.y.patch}" ];
             postPatch = ''
               cat src/conf-parse.y
               lll
