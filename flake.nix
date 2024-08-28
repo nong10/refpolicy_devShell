@@ -16,8 +16,9 @@
             patchPhase = ''
               patch -p1 "${./conf-parse.y.patch}"
             '';
-            postpatch = ''
+            postPatch = ''
               cat src/conf-parse.y
+              lll
             '';
           };
         })
