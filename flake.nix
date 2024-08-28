@@ -14,7 +14,7 @@
         (final: prev: {
           libsemanage = prev.libsemanage.overrideAttrs {
             patchPhase = ''
-              patch -p1 "${./conf-parse.y.patch}"
+              patch -p1 "${./conf-parse.y.patchh}"
             '';
           };
         })
