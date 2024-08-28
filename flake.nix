@@ -16,6 +16,7 @@
             patchPhase = ''
               patch -p1 "${./conf-parse.y.patch}"
             '';
+          };
         })
       ];
     };
