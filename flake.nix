@@ -33,11 +33,11 @@
             gnused	    # sed
             gnumake	    # make
             gnum4	      # m4
-            policycoreutils # semodule
-            checkpolicy     # checkpolicy checkmodule
-            semodule-utils  # semodule_link semodule_unpackage semodule_expand semodule_package
-            setools         # sechecker
-            (libselinux.override { enablePython = true; } )      # sefcontext_compile
+#            policycoreutils # semodule
+#            checkpolicy     # checkpolicy checkmodule
+#            semodule-utils  # semodule_link semodule_unpackage semodule_expand semodule_package
+#            setools         # sechecker
+#            (libselinux.override { enablePython = true; } )      # sefcontext_compile
             libxml2         # xmllint
             #(python311.withPackages ( ps: with ps; 
             #  [ 
