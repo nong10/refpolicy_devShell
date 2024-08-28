@@ -4,8 +4,8 @@
         conf->store_path = strdup(basename(selinux_policy_root()));
         conf->ignoredirs = NULL;
         conf->store_root_path = strdup("/var/lib/selinux");
--       conf->compiler_directory_path = strdup("/usr/libexec/selinux/hll");
-+       conf->compiler_directory_path = strdup("${pkgs.policycoreutils}/libexec/selinux/hll");
+-		conf->compiler_directory_path = strdup("/usr/libexec/selinux/hll");
++		conf->compiler_directory_path = strdup("${pkgs.policycoreutils}/libexec/selinux/hll");
         conf->policyvers = sepol_policy_kern_vers_max();
         conf->target_platform = SEPOL_TARGET_SELINUX;
         conf->expand_check = 1;
@@ -13,8 +13,8 @@
         if (access("/sbin/load_policy", X_OK) == 0) {
                 conf->load_policy->path = strdup("/sbin/load_policy");
         } else {
--               conf->load_policy->path = strdup("/usr/sbin/load_policy");
-+               conf->load_policy->path = strdup("${pkgs.policycoreutils}/bin/load_policy");
+-				conf->load_policy->path = strdup("/usr/sbin/load_policy");
++				conf->load_policy->path = strdup("${pkgs.policycoreutils}/bin/load_policy");
         }
         if (conf->load_policy->path == NULL) {
                 return -1;
@@ -22,8 +22,8 @@
         if (access("/sbin/setfiles", X_OK) == 0) {
                 conf->setfiles->path = strdup("/sbin/setfiles");
         } else {
--               conf->setfiles->path = strdup("/usr/sbin/setfiles");
-+               conf->setfiles->path = strdup("${pkgs.policycoreutils}bin/setfiles");
+-				conf->setfiles->path = strdup("/usr/sbin/setfiles");
++				conf->setfiles->path = strdup("${pkgs.policycoreutils}bin/setfiles");
         }
         if ((conf->setfiles->path == NULL) ||
             (conf->setfiles->args = strdup("-q -c $@ $<")) == NULL) {
@@ -31,8 +31,8 @@
         if (access("/sbin/sefcontext_compile", X_OK) == 0) {
                 conf->sefcontext_compile->path = strdup("/sbin/sefcontext_compile");
         } else {
--               conf->sefcontext_compile->path = strdup("/usr/sbin/sefcontext_compile");
-+               conf->sefcontext_compile->path = strdup("${pkgs.libselinux}/bin/sefcontext_compile");
+-				conf->sefcontext_compile->path = strdup("/usr/sbin/sefcontext_compile");
++				conf->sefcontext_compile->path = strdup("${pkgs.libselinux}/bin/sefcontext_compile");
         }
         if ((conf->sefcontext_compile->path == NULL) ||
             (conf->sefcontext_compile->args = strdup("$@")) == NULL) {
