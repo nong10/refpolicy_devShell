@@ -8,7 +8,17 @@
   outputs = { self , nixpkgs , ... }: 
   let
     system = "x86_64-linux";
-    pkgs = import nixpkgs { system = "x86_64-linux"; };
+    pkgs = import nixpkgs { 
+      system = "x86_64-linux"; 
+      overlays = [
+        (final: prev: {
+          libsemanage = prev.libsemanage.overrideAttrs {
+            patchPhase = ''
+              patch -p1 "${./conf-parse.y.patch}"
+            '';
+        })
+      ];
+    };
   in 
   {
     devShells."${system}".default = 
