@@ -63,7 +63,6 @@
 
             export SECHECK="${pkgs.setools}/bin/sechecker"
             export XMLLINT="${pkgs.libxml2}/bin/xmllint"
-            echo "Test test"
             echo "hello devShell! env for refpolicy" 
             echo -e "Suggested actions for modular build: " 
             echo -e "\t mkdir /var/lib/selinux"
