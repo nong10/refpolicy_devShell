@@ -6,9 +6,11 @@ the [selinux refpolicy](https://github.com/SELinuxProject/refpolicy).
 
 ## How to use
 - to evaluate from remote source 
-```nix --experimental-features 'nix-command flakes' develop github:nong10/refpolicy_env/thesis#default
+```
+nix --experimental-features 'nix-command flakes' develop github:nong10/refpolicy_env/thesis#default
 ```
 - to evaluate using the local flake
 at root directory of the repo, run
-```nix --experimental-features 'nix-command flakes' develop ./#default 
+```
+nix --experimental-features 'nix-command flakes' develop ./#default 
 ```
