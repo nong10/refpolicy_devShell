@@ -10,18 +10,6 @@
     system = "x86_64-linux";
     pkgs = import nixpkgs { 
       system = "x86_64-linux"; 
-      overlays = [
-        (final: prev: {
-          libsemanage = prev.libsemanage.overrideAttrs {
-            #patches = [ "${./conf-parse.y.patch}" ];
-            patchPhase = "patch -p1 < ${./conf-parse.y.patch}";
-            postPatch = ''
-              cat src/conf-parse.y
-              lll
-            '';
-          };
-        })
-      ];
     };
   in 
   {
@@ -42,12 +30,12 @@
             setools         # sechecker
             (libselinux.override { enablePython = true; } )      # sefcontext_compile
             libxml2         # xmllint
-            #(python311.withPackages ( ps: with ps; 
-            #  [ 
-            #    setuptools
-            #    (callPackage ./selinux_pypackage.nix {}) 
-            #  ]             # [policy_root]/support/selinux_binary_policy_path.py
-            #))
+            (python311.withPackages ( ps: with ps; 
+              [ 
+                setuptools
+                (callPackage ./selinux_pypackage.nix {}) 
+              ]             # [policy_root]/support/selinux_binary_policy_path.py
+            ))
           ];
 
           shellHook = ''
@@ -76,7 +64,7 @@
             export SECHECK="${pkgs.setools}/bin/sechecker"
             export XMLLINT="${pkgs.libxml2}/bin/xmllint"
             echo "hello devShell! env for refpolicy" 
-            echo -e "Suggested actions: " 
+            echo -e "Suggested actions for modular build: " 
             echo -e "\t mkdir /var/lib/selinux"
             echo -e "\t ln -s [path to libselinux]/bin/sefcontext_compile /usr/sbin/" 
             echo -e "\t ln -s [path to policycoreutils]/bin/setfiles /usr/sbin/" 
