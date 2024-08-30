@@ -9,7 +9,7 @@ the [selinux refpolicy](https://github.com/SELinuxProject/refpolicy).
 ```
 nix --experimental-features 'nix-command flakes' develop github:nong10/refpolicy_env/thesis#default
 ```
-- to evaluate using the local flake
+- to evaluate using the local flake  
 at root directory of the repo, run
 ```
 nix --experimental-features 'nix-command flakes' develop ./#default 
