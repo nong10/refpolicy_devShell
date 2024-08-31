@@ -23,8 +23,6 @@ buildPythonPackage rec {
     setuptools-scm
   ];
 
-  patches = [ "${./patches/__init__.py.patch}" ];
-
   doCheck = false;
 
   pyproject = true;
