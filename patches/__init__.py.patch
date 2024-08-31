@@ -1,0 +1,16 @@
+diff --git a/selinux/__init__.py b/selinux/__init__.py
+index ef94efd..bc73776 100644
+--- a/selinux/__init__.py
++++ b/selinux/__init__.py
+@@ -73,10 +73,7 @@ if should_have_selinux():
+         """Get sitepackage locations from system python"""
+         # Do not ever use sys.executable here
+         # See https://github.com/pycontribs/selinux/issues/17 for details
+-        system_python = "/usr/bin/python%s" % ".".join(
+-            [str(item) for item in platform.python_version_tuple()[0:2]]
+-        )
+-
++        system_python = sys.executable
+         system_sitepackages = json.loads(
+             subprocess.check_output(
+                 [
